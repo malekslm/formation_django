@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Numbers</title>
+</head>
+<body>
+    <h2>Add Numbers</h2>
+    <form method="post" action="{% url 'add_numbers2' %}">
+        {% csrf_token %}
+        <label for="num1">Number 1:</label>
+        <input type="number" name="num1" required>
+        <br>
+        <label for="num2">Number 2:</label>
+        <input type="number" name="num2" required>
+        <br>
+        <button type="submit">Add</button>
+    </form>
+    {% if result %}
+        <p>Sum: {{ result }}</p>
+    {% endif %}
+
+
+    {% if history %}
+    <h2>Historique des Calculs</h2>
+    <ul>
+        {% for calculation in history %}
+            <li>{{ calculation.num1 }} + {{ calculation.num2 }} = {{ calculation.result }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+</body>
+</html>
