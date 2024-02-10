@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Add Numbers</h2>
-    <form method="post" action="{% url 'add_numbers2' %}">
+    <form method="post" action="{% url 'n_add_numbers2' %}">
         {% csrf_token %}
         <label for="num1">Number 1:</label>
         <input type="number" name="num1" required>
