@@ -1,0 +1,32 @@
+<!-- ajouter_etudiant.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/forms.css' %}">
+    <title>Ajouter un étudiant</title>
+</head>
+<body>
+    <h1>Ajouter un étudiant</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+       
+            {{ form.as_p }}
+
+
+ {% for field in form %}
+            {% if field.errors %}
+                <div class="error">
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

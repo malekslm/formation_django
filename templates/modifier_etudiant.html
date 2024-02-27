@@ -1,0 +1,16 @@
+<!-- modifier_etudiant.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un étudiant</title>
+</head>
+<body>
+    <h1>Modifier un étudiant</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Modifier</button>
+    </form>
+</body>
+</html>

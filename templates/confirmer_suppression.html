@@ -1,0 +1,16 @@
+<!-- confirmer_suppression.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmer suppression</title>
+</head>
+<body>
+    <h1>Confirmer suppression</h1>
+    <p>Êtes-vous sûr de vouloir supprimer {{ etudiant.nom }} {{ etudiant.prenom }} ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmer</button>
+    </form>
+</body>
+</html>

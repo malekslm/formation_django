@@ -25,8 +25,8 @@
     {% if history %}
     <h2>Historique des Calculs</h2>
     <ul>
-        {% for calculation in history %}
-            <li>{{ calculation.num1 }} + {{ calculation.num2 }} = {{ calculation.result }}</li>
+        {% for i in history %}
+            <li>{{ i.num1 }} + {{ i.num2 }} = {{ i.result }}</li>
         {% endfor %}
     </ul>
 {% endif %}

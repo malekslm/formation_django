@@ -1,0 +1,26 @@
+<!-- liste_etudiants.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des étudiants</title>
+</head>
+<body>
+    <h1>Liste des étudiants</h1>
+    <ul>
+        {% for etudiant in etudiants %}
+            <li>{{ etudiant.nom }} {{ etudiant.prenom }} - {{ etudiant.matricule }}
+                <form method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <a href="{% url 'modifier_etudiant' pk=etudiant.pk %}"><button type="button">Modifier</button></a>
+                </form>
+                <form method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <a href="{% url 'supprimer_etudiant' pk=etudiant.pk %}"><button type="button">Supprimer</button></a>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'ajouter_etudiant' %}">Ajouter un étudiant</a>
+</body>
+</html>
